@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masoala Experiences — Manga Beach Hotel · Paradise Valley · Camp de pêche</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --navy:#0a1628;--navy-mid:#112240;--navy-light:#1a3a5c;
+      --gold:#c9a84c;--gold-light:#e8d5a3;--gold-pale:#f5ecd7;
+      --cream:#faf7f2;--cream-dark:#f0ead8;--white:#fff;
+      --muted:#6b7a8d;--text:#1a2332;--border:rgba(201,168,76,.22);
+      --forest:#1f4d3a;--ocean:#0f5d75;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth} body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+    a{text-decoration:none;color:inherit} img{display:block;width:100%;object-fit:cover}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:transparent;transition:.4s}
+    nav.scrolled{background:rgba(10,22,40,.97);padding:.8rem 4rem;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+    .nav-logo{display:flex;align-items:center;gap:.8rem}.nav-logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;color:var(--navy);font-weight:600}.nav-logo-text{font-family:'Cormorant Garamond',serif}.nav-logo-text strong{display:block;font-size:1.15rem;color:white;letter-spacing:.04em}.nav-logo-text span{font-family:'Jost';font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light)}
+    .nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);font-weight:500;position:relative}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:.3s}.nav-links a:hover,.nav-links a.active{color:var(--gold-light)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-cta{background:var(--gold);color:var(--navy);padding:.6rem 1.5rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}.hamburger span{width:24px;height:2px;background:white;display:block;transition:.3s}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}.mobile-menu.open{display:flex}.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;color:white}.mobile-menu .mob-cta{font-family:'Jost';font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:.8rem 2.4rem}
+
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(10,22,40,.96),rgba(17,34,64,.86),rgba(10,22,40,.98)),url('assets/masoala-experiences.jpg') center/cover;opacity:1}
+    .hero::after{content:'MASOALA';position:absolute;bottom:-2rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,18vw,16rem);font-weight:600;color:rgba(255,255,255,.035);letter-spacing:.08em;white-space:nowrap}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:960px;padding:8rem 2rem 4rem;animation:fadeUp 1s ease both}.eyebrow{display:inline-flex;gap:.7rem;align-items:center;font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.4rem}.eyebrow::before,.eyebrow::after{content:'';width:34px;height:1px;background:var(--gold);opacity:.6}
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7.5vw,6.2rem);font-weight:300;line-height:1.05;color:white;margin-bottom:1.2rem}h1 em{font-style:italic;color:var(--gold-light)}
+    .hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(255,255,255,.72);line-height:1.7;max-width:760px;margin:0 auto 2.6rem}.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.btn-primary,.btn-outline,.btn-dark{display:inline-block;padding:1rem 2.4rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:.25s}.btn-primary{background:var(--gold);color:var(--navy)}.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}.btn-outline{border:1px solid rgba(255,255,255,.4);color:white}.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}.btn-dark{background:var(--navy);color:white}.btn-dark:hover{background:var(--navy-mid)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+    .section{padding:6rem 4rem}.section-inner{max-width:1200px;margin:auto}.section-label{font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}.section-label::after{content:'';width:44px;height:1px;background:var(--gold);opacity:.5}.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:300;line-height:1.15;color:var(--navy);margin-bottom:1rem}.section-title em{font-style:italic;color:var(--navy-light)}.section-sub{font-size:.92rem;line-height:1.85;color:var(--muted);max-width:640px}
+
+    .intro{background:var(--cream);border-top:2px solid var(--gold)}.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center}.intro-panel{background:white;border-left:2px solid var(--gold);padding:2.6rem;box-shadow:0 18px 50px rgba(10,22,40,.08)}.intro-panel p{font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1.6;color:var(--navy);font-style:italic}.signature{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:1.5rem}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gold-pale);margin-top:2.5rem}.stat{background:white;padding:1.8rem;text-align:center}.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold)}.stat-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+    .destinations{background:var(--navy);position:relative;overflow:hidden}.destinations::before{content:'';position:absolute;right:-160px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 68%)}.destinations .section-title{color:white}.destinations .section-sub{color:rgba(255,255,255,.55)}.dest-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3rem;position:relative;z-index:1}
+    .dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative;z-index:1}.dest-card{background:white;overflow:hidden;min-height:100%;transition:.3s}.dest-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.25)}.dest-img{height:260px;background:center/cover}.dest-body{padding:1.8rem}.dest-tag{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.6rem}.dest-name{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--navy);margin-bottom:.7rem}.dest-desc{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:1.3rem}.dest-meta{display:flex;flex-wrap:wrap;gap:.6rem}.pill{font-size:.68rem;color:var(--navy);border:1px solid var(--border);padding:.35rem .6rem;background:var(--gold-pale)}.dest-link{display:inline-block;margin-top:1.4rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+
+    .journey{background:var(--cream-dark)}.timeline{margin-top:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gold-pale)}.step{background:white;padding:2rem;min-height:230px;position:relative}.step-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);margin-bottom:.8rem}.step-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.18em;color:var(--navy);font-weight:600;margin-bottom:.8rem}.step-text{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+    .combos{background:white}.combo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}.combo-card{background:var(--cream);border-top:2px solid var(--gold);padding:2.2rem}.combo-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);margin-bottom:.7rem}.combo-desc{font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem}.combo-list{display:flex;flex-direction:column;gap:.7rem}.combo-list span{font-size:.8rem;color:var(--text)}
+
+    .map-band{background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:5rem 4rem;color:white}.map-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}.map-card{border:1px solid rgba(201,168,76,.25);padding:2rem;background:rgba(255,255,255,.04)}.map-line{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(201,168,76,.12)}.map-line:last-child{border-bottom:0}.map-dot{width:13px;height:13px;border-radius:50%;background:var(--gold);margin-top:.3rem;flex-shrink:0}.map-title{font-weight:600;font-size:.86rem}.map-text{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.55;margin-top:.25rem}
+
+    .cta-section{background:var(--gold);padding:4.5rem 4rem;text-align:center}.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:.8rem}.cta-section p{color:var(--navy-light);font-size:.92rem;margin-bottom:2rem}
+
+    footer{background:var(--navy)}.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding:4rem 4rem 3rem;border-bottom:1px solid rgba(201,168,76,.1)}.ft-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:white;margin-bottom:.3rem}.ft-brand-name span{color:var(--gold)}.ft-brand-loc{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.2rem}.ft-brand-desc{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:310px}.ft-col-title{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:500}.ft-links-list{display:flex;flex-direction:column;gap:.7rem}.ft-links-list a{font-size:.82rem;color:rgba(255,255,255,.45);transition:.2s}.ft-links-list a:hover{color:var(--gold-light)}.ft-contact-item{display:flex;gap:.7rem;margin-bottom:.9rem}.ft-contact-item span{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.5}.ft-bottom{padding:1.5rem 4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.ft-copy,.ft-bottom-links a{font-size:.7rem;color:rgba(255,255,255,.25)}.ft-bottom-links{display:flex;gap:1.5rem}
+
+    @media(max-width:980px){nav,nav.scrolled{padding:1rem 1.5rem}.nav-links,.nav-cta{display:none}.hamburger{display:flex}.section{padding:4rem 1.5rem}.hero-content{padding:7rem 1.5rem 3rem}.intro-grid,.map-inner{grid-template-columns:1fr;gap:2.5rem}.dest-head{flex-direction:column;align-items:flex-start}.dest-grid,.combo-grid{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.ft-top{grid-template-columns:1fr 1fr;padding:3rem 1.5rem 2rem}.ft-bottom{padding:1.5rem;flex-direction:column;text-align:center}.map-band,.cta-section{padding:4rem 1.5rem}}
+    @media(max-width:560px){.stats,.timeline{grid-template-columns:1fr}.hero-actions{flex-direction:column;align-items:center}.btn-primary,.btn-outline,.btn-dark{width:100%;max-width:320px;text-align:center}.ft-top{grid-template-columns:1fr}.eyebrow{letter-spacing:.22em}.eyebrow::before,.eyebrow::after{width:18px}}
+  
+/* === Masoala Experiences inter-sites bar — premium clean v2 === */
+:root{--mx-sitebar-height:34px;}
+html{scroll-padding-top:calc(var(--mx-sitebar-height) + 84px);}
+body{padding-top:var(--mx-sitebar-height);}
+.mx-sitebar{
+  position:fixed;top:0;left:0;right:0;z-index:10000;
+  height:var(--mx-sitebar-height);
+  background:linear-gradient(90deg,rgba(8,20,18,.94),rgba(34,74,50,.94),rgba(13,52,70,.94));
+  border-bottom:1px solid rgba(232,213,163,.18);
+  box-shadow:0 8px 26px rgba(0,0,0,.18);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  font-family:inherit;
+}
+.mx-sitebar-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 3.5rem;max-width:1440px;margin:0 auto;}
+.mx-sitebar-brand{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:#f1d89a;white-space:nowrap;opacity:.98;}
+.mx-sitebar-links{display:flex;align-items:center;gap:.25rem;overflow-x:auto;scrollbar-width:none}.mx-sitebar-links::-webkit-scrollbar{display:none}
+.mx-sitebar-links a{font-size:.61rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.84);padding:.28rem .62rem;border:1px solid rgba(255,255,255,.13);border-radius:999px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s,transform .2s;line-height:1;}
+.mx-sitebar-links a:hover{background:rgba(232,213,163,.14);border-color:rgba(232,213,163,.42);color:#fff;transform:translateY(-1px)}
+nav{top:var(--mx-sitebar-height)!important;}
+.mobile-menu{top:var(--mx-sitebar-height)!important;height:calc(100vh - var(--mx-sitebar-height))!important;}
+@media(max-width:900px){:root{--mx-sitebar-height:32px}.mx-sitebar-inner{padding:0 .85rem}.mx-sitebar-brand{font-size:.52rem;letter-spacing:.16em}.mx-sitebar-links a{font-size:.56rem;padding:.26rem .5rem;letter-spacing:.08em}.mx-sitebar-links{gap:.22rem}}
+@media(max-width:560px){:root{--mx-sitebar-height:32px}.mx-sitebar-inner{justify-content:flex-start;gap:.55rem}.mx-sitebar-brand{display:none}.mx-sitebar-links{width:100%;justify-content:flex-start}.mx-sitebar-links a{font-size:.54rem;padding:.25rem .48rem}}
+
+</style>
+</head>
+<body>
+<!-- MASOALA EXPERIENCES SITEBAR -->
+<div class="mx-sitebar" aria-label="Navigation Masoala Experiences">
+  <div class="mx-sitebar-inner">
+    <a class="mx-sitebar-brand" href="https://masoala-experiences.netlify.app/" target="_blank" rel="noopener">Masoala Experiences</a>
+    <div class="mx-sitebar-links">
+      <a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">🏨 Manga Beach</a>
+      <a href="https://paradise-valley-ambanizana.netlify.app/" target="_blank" rel="noopener">🌿 Paradise Valley</a>
+      <a href="https://peche-sportive-masoala.netlify.app/" target="_blank" rel="noopener">🎣 Pêche Masoala</a>
+      <a href="https://masoala-experiences.netlify.app/" target="_blank" rel="noopener">◉ Hub</a>
+    </div>
+  </div>
+</div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">Manga Beach</a>
+    <a href="https://paradise-valley-ambanizana.netlify.app/" target="_blank">Paradise Valley</a>
+    <a href="https://peche-sportive-masoala.netlify.app/" target="_blank" rel="noopener">Camp de pêche</a>
+    <a href="index.html">Masoala Experiences</a>
+    <a href="https://manga-beach-hotel.netlify.app/reservation.html" target="_blank" rel="noopener" class="mob-cta">Réserver</a>
+  </div>
+
+  <nav id="navbar">
+    <a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener" class="nav-logo">
+      <div class="nav-logo-icon">ME</div>
+      <div class="nav-logo-text"><strong>Masoala Experiences</strong><span>Madagascar</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">Manga Beach</a>
+      <a href="https://paradise-valley-ambanizana.netlify.app/" target="_blank">Paradise Valley</a>
+      <a href="https://peche-sportive-masoala.netlify.app/" target="_blank" rel="noopener">Camp de pêche</a>
+      <a href="index.html" class="active">Expériences</a>
+      <a href="https://manga-beach-hotel.netlify.app/contact.html" target="_blank" rel="noopener">Contact</a>
+    </div>
+    <a href="https://manga-beach-hotel.netlify.app/reservation.html" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Maroantsetra · Ambanizana · Cap Masoala</div>
+      <h1>Trois lieux,<br><em>une même invitation</em></h1>
+      <p class="hero-sub">Une collection d’expériences autour de la baie d’Antongil et du Cap Masoala : hôtel à Maroantsetra, lodge nature à Ambanizana et camp de pêche sportive à Ambodilaitra.</p>
+      <div class="hero-actions">
+        <a href="#destinations" class="btn-primary">Découvrir les lieux</a>
+        <a href="https://manga-beach-hotel.netlify.app/reservation.html" target="_blank" rel="noopener" class="btn-outline">Composer mon séjour</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro">
+    <div class="section-inner intro-grid">
+      <div>
+        <div class="section-label">La collection</div>
+        <h2 class="section-title">Une approche plus complète du <em>voyage à Masoala</em></h2>
+        <p class="section-sub">Masoala Experiences réunit trois adresses complémentaires pour accueillir, orienter et accompagner les voyageurs : une base confortable à Maroantsetra, une immersion lodge à Ambanizana et une aventure sportive au Cap Masoala.</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">3</div><div class="stat-label">Destinations</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label">Région d’exception</div></div>
+          <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Expériences</div></div>
+        </div>
+      </div>
+      <div class="intro-panel">
+        <p>“L’idée n’est pas seulement de proposer une chambre, mais un itinéraire : arriver, se poser, explorer, vivre la nature et repartir avec une vraie mémoire du nord-est de Madagascar.”</p>
+        <div class="signature">Masoala Experiences</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section destinations" id="destinations">
+    <div class="section-inner">
+      <div class="dest-head">
+        <div>
+          <div class="section-label">Nos lieux</div>
+          <h2 class="section-title">Choisissez votre <em style="color:var(--gold-light)">point de départ</em></h2>
+          <p class="section-sub">Chaque adresse garde son identité, mais toutes partagent la même exigence : accueil, nature, authenticité et accompagnement local.</p>
+        </div>
+      </div>
+      <div class="dest-grid">
+        <a class="dest-card" href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">
+          <div class="dest-img" style="background-image:url('assets/hero.jpg'),linear-gradient(135deg,#0a1628,#1a3a5c)"></div>
+          <div class="dest-body">
+            <div class="dest-tag">Base principale</div>
+            <div class="dest-name">Manga Beach Hotel</div>
+            <p class="dest-desc">Hôtel et restaurant à Maroantsetra, idéal pour commencer le séjour, organiser les transferts et découvrir la baie d’Antongil.</p>
+            <div class="dest-meta"><span class="pill">Maroantsetra</span><span class="pill">Hôtel</span><span class="pill">Restaurant</span></div>
+            <span class="dest-link">Visiter →</span>
+          </div>
+        </a>
+        <a class="dest-card" href="https://paradise-valley-ambanizana.netlify.app/" target="_blank">
+          <div class="dest-img" style="background-image:url('assets/paradise.jpg'),linear-gradient(135deg,#1f4d3a,#0a1628)"></div>
+          <div class="dest-body">
+            <div class="dest-tag">Lodge nature</div>
+            <div class="dest-name">Paradise Valley Lodge</div>
+            <p class="dest-desc">Un séjour plus calme et immersif à Ambanizana, tourné vers la nature, la sérénité et l’expérience lodge.</p>
+            <div class="dest-meta"><span class="pill">Ambanizana</span><span class="pill">Lodge</span><span class="pill">Nature</span></div>
+            <span class="dest-link">Visiter →</span>
+          </div>
+        </a>
+        <a class="dest-card" href="https://peche-sportive-masoala.netlify.app/" target="_blank" rel="noopener">
+          <div class="dest-img" style="background-image:url('assets/peche-camp.jpg'),linear-gradient(135deg,#0f5d75,#112240)"></div>
+          <div class="dest-body">
+            <div class="dest-tag">Aventure marine</div>
+            <div class="dest-name">Camp de pêche sportive</div>
+            <p class="dest-desc">Une expérience dédiée à la pêche sportive à Ambodilaitra, au Cap Masoala, pour les voyageurs en quête d’aventure.</p>
+            <div class="dest-meta"><span class="pill">Ambodilaitra</span><span class="pill">Cap Masoala</span><span class="pill">Pêche</span></div>
+            <span class="dest-link">Découvrir →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section journey">
+    <div class="section-inner">
+      <div class="section-label">Parcours recommandé</div>
+      <h2 class="section-title">Un séjour peut devenir un <em>itinéraire complet</em></h2>
+      <p class="section-sub">Cette partie reste volontairement adaptable : on pourra préciser les durées, les transferts, les activités et les tarifs lorsque toutes les informations seront confirmées.</p>
+      <div class="timeline">
+        <div class="step"><div class="step-num">01</div><div class="step-title">Arrivée</div><p class="step-text">Accueil à Maroantsetra, installation à Manga Beach Hotel, repas, briefing et préparation du programme.</p></div>
+        <div class="step"><div class="step-num">02</div><div class="step-title">Immersion</div><p class="step-text">Départ vers Ambanizana pour une parenthèse nature au Paradise Valley Lodge.</p></div>
+        <div class="step"><div class="step-num">03</div><div class="step-title">Aventure</div><p class="step-text">Extension vers Ambodilaitra et le Cap Masoala pour l’expérience pêche sportive.</p></div>
+        <div class="step"><div class="step-num">04</div><div class="step-title">Retour</div><p class="step-text">Retour vers Maroantsetra, nuit de confort, restaurant et organisation du départ.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section combos">
+    <div class="section-inner">
+      <div class="section-label">Idées de séjours</div>
+      <h2 class="section-title">Des formules à compléter <em>plus tard</em></h2>
+      <p class="section-sub">Ces blocs sont des bases marketing. On pourra ensuite ajouter les prix, durées exactes, conditions, transferts inclus ou non, et détails pratiques.</p>
+      <div class="combo-grid">
+        <div class="combo-card"><div class="combo-name">Séjour découverte</div><p class="combo-desc">Une formule simple pour découvrir Maroantsetra et organiser une première immersion dans la région.</p><div class="combo-list"><span>✓ Manga Beach Hotel</span><span>✓ Restaurant</span><span>✓ Conseils activités</span></div></div>
+        <div class="combo-card"><div class="combo-name">Nature & lodge</div><p class="combo-desc">Une extension vers Ambanizana pour un séjour plus calme, proche de la nature.</p><div class="combo-list"><span>✓ Manga Beach Hotel</span><span>✓ Paradise Valley Lodge</span><span>✓ Transfert à préciser</span></div></div>
+        <div class="combo-card"><div class="combo-name">Aventure Masoala</div><p class="combo-desc">Une proposition plus sportive autour du Cap Masoala et de la pêche en mer.</p><div class="combo-list"><span>✓ Base à Maroantsetra</span><span>✓ Camp pêche sportive</span><span>✓ Guide / bateau à préciser</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-band">
+    <div class="map-inner">
+      <div>
+        <div class="section-label">Territoire</div>
+        <h2 class="section-title" style="color:white">Baie d’Antongil & <em style="color:var(--gold-light)">Cap Masoala</em></h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.55)">La page pourra ensuite intégrer une carte visuelle ou Google Maps avec les trois points : Maroantsetra, Ambanizana et Ambodilaitra.</p>
+      </div>
+      <div class="map-card">
+        <div class="map-line"><div class="map-dot"></div><div><div class="map-title">Maroantsetra</div><div class="map-text">Point d’entrée, hôtel, restaurant et organisation du séjour.</div></div></div>
+        <div class="map-line"><div class="map-dot"></div><div><div class="map-title">Ambanizana</div><div class="map-text">Lodge nature, calme et immersion dans l’environnement de Masoala.</div></div></div>
+        <div class="map-line"><div class="map-dot"></div><div><div class="map-title">Ambodilaitra · Cap Masoala</div><div class="map-text">Camp de pêche sportive et aventure marine.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Composer une expérience sur mesure</h2>
+    <p>Hôtel, lodge, pêche sportive ou séjour combiné : la page pourra ensuite rediriger vers un formulaire dédié.</p>
+    <a href="https://manga-beach-hotel.netlify.app/reservation.html" target="_blank" rel="noopener" class="btn-dark">Demander un séjour</a>
+  </section>
+
+  <footer>
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand-name">Masoala <span>Experiences</span></div>
+        <div class="ft-brand-loc">Maroantsetra · Ambanizana · Cap Masoala</div>
+        <p class="ft-brand-desc">Une collection d’adresses et d’expériences pour découvrir le nord-est de Madagascar autrement.</p>
+      </div>
+      <div>
+        <div class="ft-col-title">Destinations</div>
+        <div class="ft-links-list"><a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">Manga Beach Hotel</a><a href="https://paradise-valley-ambanizana.netlify.app/" target="_blank">Paradise Valley Lodge</a><a href="https://peche-sportive-masoala.netlify.app/" target="_blank" rel="noopener">Camp de pêche Masoala</a></div>
+      </div>
+      <div>
+        <div class="ft-col-title">Navigation</div>
+        <div class="ft-links-list"><a href="https://manga-beach-hotel.netlify.app/chambres.html" target="_blank" rel="noopener">Chambres</a><a href="https://manga-beach-hotel.netlify.app/restaurant.html" target="_blank" rel="noopener">Restaurant</a><a href="https://manga-beach-hotel.netlify.app/galerie.html" target="_blank" rel="noopener">Galerie</a><a href="https://manga-beach-hotel.netlify.app/reservation.html" target="_blank" rel="noopener">Réservation</a><a href="https://manga-beach-hotel.netlify.app/contact.html" target="_blank" rel="noopener">Contact</a></div>
+      </div>
+      <div>
+        <div class="ft-col-title">Contact</div>
+        <div class="ft-contact-item"><span>R1 011 Androkaroka<br>BP 73 Maroantsetra</span></div>
+        <div class="ft-contact-item"><span>mangabeach.hotel@yahoo.com</span></div>
+        <div class="ft-contact-item"><span>+261 32 54 789 04<br>+261 34 07 019 77</span></div>
+      </div>
+    </div>
+    <div class="ft-bottom"><div class="ft-copy">© 2025 Masoala Experiences. Tous droits réservés.</div><div class="ft-bottom-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a></div></div>
+  </footer>
+
+  <script>
+    const navbar=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+    const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');
+    hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');hamburger.setAttribute('aria-expanded',mobileMenu.classList.contains('open'));document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''}));
+    const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+    document.querySelectorAll('.dest-card,.step,.combo-card,.map-line').forEach(el=>{el.style.cssText+=';opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease';observer.observe(el)});
+  </script>
+</body>
+</html>
