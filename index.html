@@ -31,8 +31,8 @@
     body{font-family:'Nunito',sans-serif;color:var(--text);background:var(--sand-soft);overflow-x:hidden}
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
-    .topbar{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;padding:.65rem 1rem;background:#062f39;color:#fff;font-size:.88rem}
-    .topbar a{opacity:.92}
+    
+    
     nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem 5vw;background:rgba(7,63,77,.94);backdrop-filter:blur(14px);color:#fff;border-bottom:1px solid rgba(255,255,255,.10)}
     .brand{display:flex;align-items:center;gap:.75rem;font-weight:900;letter-spacing:.02em}
     .brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:16px;background:linear-gradient(135deg,var(--sand),#f4dfad);color:var(--ocean);font-family:'Playfair Display',serif;font-weight:700}
@@ -88,18 +88,59 @@
       section{padding:4rem 1.2rem}
       .intro-card,.portal-grid,.simple-steps,.footer-inner{grid-template-columns:1fr}
       .portal-card{min-height:430px}
-      .topbar{font-size:.8rem}
+      
     }
-  </style>
+  
+
+
+
+/* Ecosystem navigation final fixed */
+.ecosystem-nav{
+position:relative;
+z-index:9999;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:.65rem;
+flex-wrap:wrap;
+padding:.62rem 1rem;
+background:#041018;
+color:#fff;
+font-family:Arial,sans-serif;
+font-size:.88rem;
+line-height:1.2;
+border-bottom:1px solid rgba(255,255,255,.12)
+}
+.ecosystem-nav a{
+display:inline-flex;
+align-items:center;
+gap:.35rem;
+padding:.45rem .75rem;
+border-radius:999px;
+color:rgba(255,255,255,.86);
+text-decoration:none;
+font-weight:800;
+border:1px solid transparent;
+transition:.2s
+}
+.ecosystem-nav a:hover{background:rgba(255,255,255,.10);color:#fff}
+.ecosystem-nav a.active{background:#f0c36d;color:#061923;border-color:#f0c36d}
+@media(max-width:720px){
+.ecosystem-nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:.58rem .8rem}
+.ecosystem-nav a{white-space:nowrap;font-size:.82rem}
+}
+
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <a href="https://manga-beach-hotel.vercel.app/" target="_blank" rel="noopener">🏨 Manga Beach</a>
-    <a href="https://paradise-valley-lodge.vercel.app/" target="_blank" rel="noopener">🌿 Paradise Valley</a>
-    <a href="https://peche-sportive-masoala.vercel.app/" target="_blank" rel="noopener">🎣 Pêche Masoala</a>
-  </div>
 
-  <nav>
+<div class="ecosystem-nav" aria-label="Navigation écosystème Masoala">
+<a href="https://masoala-experiences.vercel.app/" class="active">◉ Masoala Experiences</a>
+<a href="https://manga-beach-hotel.vercel.app/">🏨 Manga Beach</a>
+<a href="https://paradise-valley-lodge.vercel.app/">🌿 Paradise Valley</a>
+<a href="https://peche-sportive-masoala.vercel.app/">🎣 Pêche Sportive</a>
+</div>
+<nav>
     <a class="brand" href="index.html" aria-label="Masoala Experiences accueil">
       <span class="brand-mark">ME</span>
       <span>Masoala Experiences</span>
@@ -155,7 +196,7 @@
               <span class="tag">Hôtel & restaurant</span>
               <h3>Manga Beach Hôtel</h3>
               <p>Votre base confortable à Maroantsetra : chambres, restaurant, logistique et départs vers Masoala.</p>
-              <a class="portal-link" href="https://manga-beach-hotel.vercel.app/" target="_blank" rel="noopener">Voir l’hôtel →</a>
+              <a class="portal-link" href="https://manga-beach-hotel.vercel.app/"  rel="noopener">Voir l’hôtel →</a>
             </div>
           </article>
 
@@ -165,7 +206,7 @@
               <span class="tag">Éco-lodge premium</span>
               <h3>Paradise Valley Lodge</h3>
               <p>Une immersion nature à Ambanizana, entre forêt tropicale, baie d’Antongil et calme premium.</p>
-              <a class="portal-link" href="https://paradise-valley-lodge.vercel.app/" target="_blank" rel="noopener">Découvrir le lodge →</a>
+              <a class="portal-link" href="https://paradise-valley-lodge.vercel.app/"  rel="noopener">Découvrir le lodge →</a>
             </div>
           </article>
 
@@ -175,7 +216,7 @@
               <span class="tag">Aventure marine</span>
               <h3>Pêche Sportive Masoala</h3>
               <p>Sorties pêche, bateau et aventure en mer pour découvrir la baie d’Antongil autrement.</p>
-              <a class="portal-link" href="https://peche-sportive-masoala.vercel.app/" target="_blank" rel="noopener">Découvrir la pêche →</a>
+              <a class="portal-link" href="https://peche-sportive-masoala.vercel.app/"  rel="noopener">Découvrir la pêche →</a>
             </div>
           </article>
         </div>
@@ -215,9 +256,9 @@
       <div>
         <h3>Les sites</h3>
         <div class="footer-links">
-          <a href="https://manga-beach-hotel.vercel.app/" target="_blank" rel="noopener">Manga Beach Hôtel</a>
-          <a href="https://paradise-valley-lodge.vercel.app/" target="_blank" rel="noopener">Paradise Valley Lodge</a>
-          <a href="https://peche-sportive-masoala.vercel.app/" target="_blank" rel="noopener">Pêche Sportive Masoala</a>
+          <a href="https://manga-beach-hotel.vercel.app/"  rel="noopener">Manga Beach Hôtel</a>
+          <a href="https://paradise-valley-lodge.vercel.app/"  rel="noopener">Paradise Valley Lodge</a>
+          <a href="https://peche-sportive-masoala.vercel.app/"  rel="noopener">Pêche Sportive Masoala</a>
         </div>
       </div>
       <div>
