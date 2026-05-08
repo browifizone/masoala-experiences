@@ -90,40 +90,16 @@
       .portal-card{min-height:430px}
       .topbar{font-size:.8rem}
     }
-  
-/* Ecosystem navigation */
-.ecosystem-nav{
-  position:relative;z-index:9999;
-  display:flex;justify-content:center;align-items:center;gap:.65rem;flex-wrap:wrap;
-  padding:.62rem 1rem;background:#041018;color:#fff;font-family:Arial, sans-serif;
-  font-size:.88rem;line-height:1.2;border-bottom:1px solid rgba(255,255,255,.12)
-}
-.ecosystem-nav a{
-  display:inline-flex;align-items:center;gap:.35rem;
-  padding:.45rem .7rem;border-radius:999px;color:rgba(255,255,255,.86);
-  text-decoration:none;font-weight:800;border:1px solid transparent;transition:.2s
-}
-.ecosystem-nav a:hover{background:rgba(255,255,255,.10);color:#fff}
-.ecosystem-nav a.active{
-  background:#f0c36d;color:#061923;border-color:#f0c36d
-}
-@media(max-width:720px){
-  .ecosystem-nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:.58rem .8rem}
-  .ecosystem-nav a{white-space:nowrap;font-size:.82rem}
-}
-
-</style>
+  </style>
 </head>
 <body>
+  <div class="topbar">
+    <a href="https://manga-beach-hotel.vercel.app/" target="_blank" rel="noopener">🏨 Manga Beach</a>
+    <a href="https://paradise-valley-lodge.vercel.app/" target="_blank" rel="noopener">🌿 Paradise Valley</a>
+    <a href="https://peche-sportive-masoala.vercel.app/" target="_blank" rel="noopener">🎣 Pêche Masoala</a>
+  </div>
 
-<div class="ecosystem-nav" aria-label="Navigation écosystème Masoala">
-  <a href="https://masoala-experiences.vercel.app/" class="active">◉ Masoala Experiences</a>
-  <a href="https://manga-beach-hotel.vercel.app/">🏨 Manga Beach</a>
-  <a href="https://paradise-valley-lodge.vercel.app/">🌿 Paradise Valley</a>
-  <a href="https://peche-sportive-masoala.vercel.app/">🎣 Pêche Sportive</a>
-</div>
-
-<nav>
+  <nav>
     <a class="brand" href="index.html" aria-label="Masoala Experiences accueil">
       <span class="brand-mark">ME</span>
       <span>Masoala Experiences</span>
@@ -149,7 +125,64 @@
   </header>
 
   <main>
-<section>
+    <section id="apercu">
+      <div class="section-inner">
+        <p class="eyebrow">Le portail Masoala</p>
+        <h2>Un aperçu simple avant de choisir votre expérience.</h2>
+        <p class="lead">Entre la baie d’Antongil, Maroantsetra, Ambanizana et Masoala, chaque voyage peut prendre une forme différente : séjour hôtel, immersion nature, aventure marine ou pêche sportive. Ce portail vous aide simplement à accéder au bon site selon votre besoin.</p>
+
+        <div class="intro-card">
+          <img src="assets/bateau-ilona.jpg" alt="Bateau dans la baie d’Antongil">
+          <div class="intro-copy">
+            <p><strong>Masoala Experiences</strong> ne remplace pas les trois sites : il les relie.</p>
+            <p>Vous découvrez d’abord l’univers général, puis vous choisissez la porte d’entrée adaptée : hôtel, lodge ou pêche sportive.</p>
+            <p>L’objectif est de garder une navigation simple, élégante et cohérente pour les voyageurs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosysteme" class="ecosystem">
+      <div class="section-inner">
+        <p class="eyebrow">Les trois portes d’entrée</p>
+        <h2>Choisissez le site qui correspond à votre projet.</h2>
+        <p class="lead">Chaque site garde sa propre identité, mais ils appartiennent au même écosystème touristique autour de Masoala.</p>
+
+        <div class="portal-grid">
+          <article class="portal-card">
+            <img src="assets/manga-beach.jpg" alt="Manga Beach Hôtel à Maroantsetra">
+            <div class="portal-content">
+              <span class="tag">Hôtel & restaurant</span>
+              <h3>Manga Beach Hôtel</h3>
+              <p>Votre base confortable à Maroantsetra : chambres, restaurant, logistique et départs vers Masoala.</p>
+              <a class="portal-link" href="https://manga-beach-hotel.vercel.app/" target="_blank" rel="noopener">Voir l’hôtel →</a>
+            </div>
+          </article>
+
+          <article class="portal-card">
+            <img src="assets/paradise-valley-drone.jpg" alt="Paradise Valley Lodge à Ambanizana">
+            <div class="portal-content">
+              <span class="tag">Éco-lodge premium</span>
+              <h3>Paradise Valley Lodge</h3>
+              <p>Une immersion nature à Ambanizana, entre forêt tropicale, baie d’Antongil et calme premium.</p>
+              <a class="portal-link" href="https://paradise-valley-lodge.vercel.app/" target="_blank" rel="noopener">Découvrir le lodge →</a>
+            </div>
+          </article>
+
+          <article class="portal-card">
+            <img src="assets/bateau-ilona.jpg" alt="Pêche sportive dans la baie d’Antongil">
+            <div class="portal-content">
+              <span class="tag">Aventure marine</span>
+              <h3>Pêche Sportive Masoala</h3>
+              <p>Sorties pêche, bateau et aventure en mer pour découvrir la baie d’Antongil autrement.</p>
+              <a class="portal-link" href="https://peche-sportive-masoala.vercel.app/" target="_blank" rel="noopener">Découvrir la pêche →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="section-inner">
         <p class="eyebrow">Navigation simple</p>
         <h2>Un hub, trois destinations.</h2>
