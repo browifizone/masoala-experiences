@@ -1,0 +1,21 @@
+SEO update — Masoala Experiences
+
+Domaine utilisé: https://masoala-experiences.com
+
+Modifications:
+- Title et meta description optimisés.
+- Canonical propre vers la page d’accueil.
+- Open Graph + Twitter Card corrigés.
+- og:image corrigée vers un fichier existant: /assets/paradise-valley-drone.jpg.
+- JSON-LD ajouté: WebSite, Organization, TouristDestination, ItemList, BreadcrumbList.
+- sitemap.xml refait avec uniquement l’URL canonique.
+- robots.txt refait.
+- masoala-experiences.html marqué noindex + redirection vers / pour éviter le contenu dupliqué.
+- vercel.json mis à jour avec cleanUrls et redirection permanente.
+
+À faire après mise en ligne:
+- Remplacer le domaine si le domaine final n’est pas https://masoala-experiences.com.
+- Remplacer G-XXXXXXXXXX par le vrai ID Google Analytics, ou supprimer le script Analytics si non utilisé.
+- Ajouter le domaine dans Google Search Console.
+- Soumettre /sitemap.xml.
+- Demander l’indexation de la page d’accueil.
