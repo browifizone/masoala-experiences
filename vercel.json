@@ -1,4 +1,7 @@
 {
   "cleanUrls": false,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/masoala-experiences.html", "destination": "/", "permanent": true }
+  ]
 }
